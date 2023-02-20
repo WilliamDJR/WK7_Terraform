@@ -38,7 +38,7 @@ pipeline{
 				ansiColor('vga'){
 					withAWS(credentials: "$AWS_Cred", region: 'ap-southeast-1') {
 						dir("$Working_Dir") {
-							sh "terraform  apply"
+							sh "terraform  apply --auto-approve"
 						}
 					}
 				}
@@ -54,7 +54,7 @@ pipeline{
 				ansiColor('vga'){
 					withAWS(credentials: "$AWS_Cred", region: 'ap-southeast-1') {
 						dir("$Working_Dir") {
-							sh "terraform  destroy"
+							sh "terraform  destroy --auto-approve"
 						}
 					}
 				}
