@@ -17,15 +17,21 @@ resource "aws_iam_role" "exec-lambda" {
   })
 }
 
+resource "aws_iam_policy" "S3_policy" {
+  name        = "S3-PutGet-Object-policy"
+  description = "Policy to Put and Get S3 Objects"
+
+  policy = <<EOF
+
+EOF
+}
+
+
 resource "aws_iam_role_policy_attachment" "AWSLambdaBasicExecutionRole" {
   role       = aws_iam_role.exec-lambda.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 resource "aws_iam_role_policy_attachment" "S3PutObjectPolicy" {
   role       = aws_iam_role.exec-lambda.name
-  policy_arn = "arn:aws:iam:::policy/S3PutObjectPolicy"
-}
-resource "aws_iam_role_policy_attachment" "S3GetObjectPolicy" {
-  role       = aws_iam_role.exec-lambda.name
-  policy_arn = "arn:aws:iam:::policy/S3GetObjectPolicy"
+  policy_arn = aws_iam_policy.S3_policy.arn
 }

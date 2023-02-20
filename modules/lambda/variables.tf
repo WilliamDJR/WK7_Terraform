@@ -26,3 +26,7 @@ variable "lambda_handler" {
 variable "api_gateway_execution_arn" {
   type = string
 }
+
+variable "account_id" {
+  type = string  
+}
