@@ -1,4 +1,4 @@
-{
+${jsonencode({
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -6,7 +6,9 @@
           "S3:*"
         ],
         "Effect": "Allow",
-        "Resource": ${s3_resources}
+        "Resource": [for s3 in s3_resources : "${s3}"]
       }
     ]
   }
+)}
+
