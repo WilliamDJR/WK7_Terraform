@@ -2,7 +2,7 @@ module "helloworld-apigateway" {
   source = "../../modules/api-gateway"
 
   api_gateway_name          = "helloworld-api"
-  api_gateway_resource_name = ["helloworld.zip", "lookup.zip"]
+  api_gateway_resource_name = ["helloworld", "lookup"]
   lambda_functions_invoke_arn = module.helloworld-lambda.lambda_functions_invoke_arn
 }
 
