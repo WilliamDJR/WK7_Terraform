@@ -16,7 +16,7 @@ resource "aws_api_gateway_resource" "api_gateway_resource" {
 resource "aws_api_gateway_method" "api_gateway_method" {
   count       = length(var.api_gateway_resource_name)
   authorization = "NONE"
-  http_method = "ANY"
+  http_method = "POST"
   resource_id = aws_api_gateway_resource.api_gateway_resource[count.index].id
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
 }
