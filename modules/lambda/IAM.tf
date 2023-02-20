@@ -10,7 +10,7 @@ resource "aws_iam_role" "exec-lambda" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "lambda.amazonaws.com"
+          Service = ["lambda.amazonaws.com", "apigateway.amazonaws.com"]
         }
       },
     ]
