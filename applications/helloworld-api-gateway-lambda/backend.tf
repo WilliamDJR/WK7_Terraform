@@ -10,15 +10,15 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-southeast-2"
+  region  = "ap-southeast-1"
 }
 
 
 terraform {
     backend "s3" {
         encrypt              = true
-        bucket               = "tfstate-willido"
-        region               = "ap-southeast-2"
+        bucket               = "evolt-failover-tfstate"
+        region               = "ap-southeast-1"
         key                  = "helloworld-api-gateway.tfstate"
         profile              = "default"
         workspace_key_prefix = "wk7_terraform"
