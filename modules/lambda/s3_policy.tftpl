@@ -6,10 +6,7 @@
           "S3:*"
         ],
         "Effect": "Allow",
-        "Resource": [
-          "arn:aws:s3:::evolt-lambdas",
-          "arn:aws:s3:::evolt-failover-tfstate"
-        ]
+        "Resource": ${s3_resources}
       }
     ]
   }

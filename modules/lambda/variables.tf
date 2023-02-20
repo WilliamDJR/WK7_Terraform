@@ -27,6 +27,6 @@ variable "api_gateway_execution_arn" {
   type = string
 }
 
-variable "account_id" {
-  type = string  
+variable "s3_resources" {
+  type = list
 }

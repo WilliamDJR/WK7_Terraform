@@ -21,9 +21,7 @@ resource "aws_iam_policy" "S3_policy" {
   name        = "S3-PutGet-Object-policy"
   description = "Policy to Put and Get S3 Objects"
 
-  policy = <<EOF
-
-EOF
+  policy = templatefile("s3_policy.tftpl",{ s3_resources = var.s3_resources })
 }
 
 
