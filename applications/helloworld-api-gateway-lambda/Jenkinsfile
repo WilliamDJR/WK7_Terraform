@@ -20,7 +20,7 @@ pipeline{
         stage('Terraform init'){
             steps{
 				ansiColor('vga'){
-					withAWS(credentials: "$AWS_Cred", region: 'ap-southeast-1') {
+					withAWS(credentials: "$AWS_Cred") {
 						dir("$Working_Dir") {
 							sh "terraform  init"
 						}
@@ -36,7 +36,7 @@ pipeline{
             }
             steps{
 				ansiColor('vga'){
-					withAWS(credentials: "$AWS_Cred", region: 'ap-southeast-1') {
+					withAWS(credentials: "$AWS_Cred") {
 						dir("$Working_Dir") {
 							sh "terraform  apply --auto-approve"
 						}
@@ -52,7 +52,7 @@ pipeline{
             }
             steps{
 				ansiColor('vga'){
-					withAWS(credentials: "$AWS_Cred", region: 'ap-southeast-1') {
+					withAWS(credentials: "$AWS_Cred") {
 						dir("$Working_Dir") {
 							sh "terraform  destroy --auto-approve"
 						}
