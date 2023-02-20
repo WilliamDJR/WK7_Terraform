@@ -1,16 +1,19 @@
 module "helloworld-apigateway" {
   source = "../../modules/api-gateway"
 
-  api_gateway_name          = var.api_gateway_name
-  api_gateway_resource_name = var.api_gateway_resource_name
+  api_gateway_name          = "helloworld-api"
+  api_gateway_resource_name = ["helloworld.zip", "lookup.zip"]
+  lambda_functions = module.helloworld-lambda.lambda_functions
 }
 
 module "helloworld-lambda" {
   source = "../../modules/lambda"
 
-  lambda_function_name      = var.lambda_function_name
-  aws_iam_role_name         = var.aws_iam_role_name
-  lambda_function_layer     = var.lambda_function_layer
-  s3_bucket_name            = var.s3_bucket_name
-  lambda_zipfile_name
+  lambda_function_name      = ["Helloworld", "lookup"]
+  aws_iam_role_name         = "LambdaWithApiGateway"
+  s3_bucket_name            = "evolt-lambdas"
+  lambda_zipfile_name       = ["helloworld.zip", "lookup.zip"]
+  lambda_handler =  ["index.handler", "index_lookup.handler"]
+  lambda_description = ["helloworld lambda", "lookup only lambda"]
+  api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
 }

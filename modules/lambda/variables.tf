@@ -15,10 +15,6 @@ variable "lambda_zipfile_name" {
   type = list
 }
 
-variable "lambda_handler" {
-  type = string
-}
-
 variable "lambda_description" {
   type = list
 }

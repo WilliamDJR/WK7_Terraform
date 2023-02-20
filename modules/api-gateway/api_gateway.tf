@@ -28,7 +28,7 @@ resource "aws_api_gateway_integration" "api_gateway_integration" {
   http_method = aws_api_gateway_method.api_gateway_method[count.index].http_method
   type        = "AWS_PROXY"
   integration_http_method = "ANY"
-  uri         = aws_lambda_function.lambda_function[count.index].invoke_arn
+  uri         = var.lambda_functions[count.index].invoke_arn
 }
 
 resource "aws_api_gateway_method_response" "response_200" {

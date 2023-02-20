@@ -23,9 +23,9 @@ resource "aws_iam_role_policy_attachment" "AWSLambdaBasicExecutionRole" {
 }
 resource "aws_iam_role_policy_attachment" "S3PutObjectPolicy" {
   role       = aws_iam_role.exec-lambda.name
-  policy_arn = "arn:aws:iam::026559016816:policy/S3PutObjectPolicy"
+  policy_arn = "arn:aws:iam:::policy/S3PutObjectPolicy"
 }
 resource "aws_iam_role_policy_attachment" "S3GetObjectPolicy" {
   role       = aws_iam_role.exec-lambda.name
-  policy_arn = "arn:aws:iam::026559016816:policy/S3GetObjectPolicy"
+  policy_arn = "arn:aws:iam:::policy/S3GetObjectPolicy"
 }
