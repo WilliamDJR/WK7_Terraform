@@ -16,7 +16,7 @@ resource "aws_api_gateway_resource" "api_gateway_resource" {
 resource "aws_api_gateway_method" "api_gateway_method" {
   count       = length(var.api_gateway_resource_name)
   authorization = "NONE"
-  http_method = "POST"
+  http_method = "ANY"
   resource_id = aws_api_gateway_resource.api_gateway_resource[count.index].id
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
 }
@@ -27,7 +27,7 @@ resource "aws_api_gateway_integration" "api_gateway_integration" {
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
   http_method = aws_api_gateway_method.api_gateway_method[count.index].http_method
   type        = "AWS_PROXY"
-  integration_http_method = "ANY"
+  integration_http_method = "POST"
   uri         = var.lambda_functions_invoke_arn[count.index]
 }
 
