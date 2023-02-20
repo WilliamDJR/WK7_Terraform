@@ -1,7 +1,7 @@
 terraform {
     backend "s3" {
         encrypt              = true
-        bucket               = "terraform-state-file"
+        bucket               = "evolt-failover-tfstate"
         region               = "ap-southeast-1"
         key                  = "helloworld-api-gateway.tfstate"
         profile              = "default"
