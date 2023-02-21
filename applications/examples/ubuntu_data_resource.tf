@@ -6,8 +6,9 @@ data "aws_ami_ids" "ubuntu_ids" {
     values = ["ubuntu/images/ubuntu-*-*-amd64-server-*"]
   }
 }
+
 data "aws_ami" "ubuntu" {
-    for_each = aws_ami_ids.ubuntu_ids.ids
+    for_each = data.aws_ami_ids.ubuntu_ids.ids
     owners      = ["099720109477"] # Canonical
 
     filter {
@@ -15,6 +16,7 @@ data "aws_ami" "ubuntu" {
         values = each.value # replace with the actual AMI ID
     }
 }
+
 # resource "aws_instance" "example" {
 #   ami           = data.aws_ami.ubuntu.id
 #   instance_type = "t2.micro"
