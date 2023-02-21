@@ -11,7 +11,7 @@ data "aws_ami" "ubuntu" {
 
     filter {
         name   = "image-id"
-        values = data.aws_ami_ids.ubuntu_ids.ids[0] # replace with the actual AMI ID
+        values = data.aws_ami_ids.ubuntu_ids.ids # replace with the actual AMI ID
     }
 }
 # resource "aws_instance" "example" {
