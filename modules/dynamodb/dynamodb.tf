@@ -16,11 +16,6 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
     type = "S"
   }
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
-
   global_secondary_index {
     name               = "HelloIndex"
     hash_key           = var.attributes[0]
