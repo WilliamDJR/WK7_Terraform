@@ -12,7 +12,7 @@ pipeline{
     }
 	environment {
 		AWS_Cred = "aws_failover"
-		Working_Dir = "applications/helloworld-api-gateway-lambda"
+		Working_Dir = "applications/examples"
 	}
     
     stages{
