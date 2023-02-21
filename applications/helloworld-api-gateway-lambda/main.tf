@@ -18,3 +18,10 @@ module "helloworld-lambda" {
   api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
   s3_resources = ["arn:aws:s3:::evolt-lambdas", "arn:aws:s3:::evolt-failover-tfstate"]
 }
+
+module "helloworld-dynamodb" {
+  source = "../../modules/dynamodb"
+
+  tableName = "HelloWorldTable"
+  attributes = ["id", "name", "city"]
+}
