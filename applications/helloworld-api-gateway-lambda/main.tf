@@ -23,5 +23,5 @@ module "helloworld-dynamodb" {
   source = "../../modules/dynamodb"
 
   tableName = "HelloWorldTable"
-  attributes = ["id", "name", "city"]
+  attributes = ["id", "name"]
 }

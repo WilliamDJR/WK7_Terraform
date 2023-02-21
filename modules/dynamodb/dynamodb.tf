@@ -3,8 +3,8 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
   billing_mode   = "PROVISIONED"
   read_capacity  = 1
   write_capacity = 1
-  hash_key       = "id"
-  range_key      = "name"
+  hash_key       = var.attributes[0]
+  range_key      = var.attributes[1]
 
   attribute {
     name = var.attributes[0]
@@ -16,11 +16,6 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = var.attributes[2]
-    type = "S"
-  }
-
   ttl {
     attribute_name = "TimeToExist"
     enabled        = false
@@ -28,12 +23,11 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
 
   global_secondary_index {
     name               = "HelloIndex"
-    hash_key           = "id"
-    range_key          = "name"
+    hash_key           = var.attributes[0]
+    range_key          = var.attributes[1]
     write_capacity     = 1
     read_capacity      = 1
     projection_type    = "ALL"
-    non_key_attributes = ["UserId"]
   }
 
   tags = {
