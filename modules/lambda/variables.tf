@@ -31,6 +31,6 @@ variable "s3_resources" {
   type = list
 }
 
-variable "dynamodb_table" {
+variable "dynamodb_table_arn" {
   type = string
 }
