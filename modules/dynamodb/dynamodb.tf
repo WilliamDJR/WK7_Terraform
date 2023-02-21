@@ -15,9 +15,4 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
     name = var.attributes[1]
     type = "S"
   }
-
-  tags = {
-    Name        = "dynamodb-table-helloworld"
-    Environment = "tutorial"
-  }
 }
