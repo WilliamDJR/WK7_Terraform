@@ -8,21 +8,12 @@ resource "aws_dynamodb_table" "helloworld-dynamodb-table" {
 
   attribute {
     name = var.attributes[0]
-    type = "S"
+    type = "N"
   }
 
   attribute {
     name = var.attributes[1]
     type = "S"
-  }
-
-  global_secondary_index {
-    name               = "HelloIndex"
-    hash_key           = var.attributes[0]
-    range_key          = var.attributes[1]
-    write_capacity     = 1
-    read_capacity      = 1
-    projection_type    = "ALL"
   }
 
   tags = {
