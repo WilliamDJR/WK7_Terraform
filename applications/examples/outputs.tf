@@ -1,3 +1,3 @@
 output "ubuntu_images" {
-  value = data.aws_ami.ubuntu.name
+  value = data.aws_ami.ubuntu.ids
 }
