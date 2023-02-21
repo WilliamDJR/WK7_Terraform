@@ -13,7 +13,7 @@ module "helloworld-lambda" {
   aws_iam_role_name         = "LambdaWithApiGateway"
   s3_bucket_name            = "evolt-lambdas"
   lambda_zipfile_name       = ["helloworld.zip", "lookup.zip"]
-  lambda_handler =  ["index.handler", "index_getname.handler"]
+  lambda_handler =  ["index_homework.handler", "index_getname.handler"]
   lambda_description = ["helloworld lambda", "lookup only lambda"]
   api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
   s3_resources = ["arn:aws:s3:::evolt-lambdas", "arn:aws:s3:::evolt-failover-tfstate"]
