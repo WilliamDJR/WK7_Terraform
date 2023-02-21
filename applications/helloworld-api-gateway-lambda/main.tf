@@ -17,12 +17,12 @@ module "helloworld-lambda" {
   lambda_description = ["helloworld lambda", "lookup only lambda"]
   api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
   s3_resources = ["arn:aws:s3:::evolt-lambdas", "arn:aws:s3:::evolt-failover-tfstate"]
-  dynamodb_table = "HelloWorldTable"
+  dynamodb_table = module.helloworld-dynamodb.dynamodb_table_arn
 }
 
 module "helloworld-dynamodb" {
   source = "../../modules/dynamodb"
 
-  tableName = "HelloWorldTable"
+  tableName = "HelloWorldTable" 
   attributes = ["id", "name"]
 }
