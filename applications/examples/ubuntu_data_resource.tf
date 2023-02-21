@@ -8,12 +8,12 @@ data "aws_ami_ids" "ubuntu_ids" {
 }
 
 data "aws_ami" "ubuntu" {
-    for_each = data.aws_ami_ids.ubuntu_ids.ids
+    for_each = data.aws_ami_ids.ubuntu_ids
     owners      = ["099720109477"] # Canonical
 
     filter {
         name   = "image-id"
-        values = each.value # replace with the actual AMI ID
+        values = each.value.ids # replace with the actual AMI ID
     }
 }
 
