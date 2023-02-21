@@ -13,7 +13,7 @@ data "aws_ami" "ubuntu" {
 
     filter {
         name   = "image-id"
-        values = each.value # replace with the actual AMI ID
+        values = [each.value] # replace with the actual AMI ID
     }
 }
 
