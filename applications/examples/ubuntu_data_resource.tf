@@ -7,11 +7,12 @@ data "aws_ami_ids" "ubuntu_ids" {
   }
 }
 data "aws_ami" "ubuntu" {
+    for_each = aws_ami_ids.ubuntu_ids.ids
     owners      = ["099720109477"] # Canonical
 
     filter {
         name   = "image-id"
-        values = [ data.aws_ami_ids.ubuntu_ids.ids[0] ] # replace with the actual AMI ID
+        values = each.value # replace with the actual AMI ID
     }
 }
 # resource "aws_instance" "example" {
