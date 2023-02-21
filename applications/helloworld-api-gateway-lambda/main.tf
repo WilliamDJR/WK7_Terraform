@@ -17,6 +17,7 @@ module "helloworld-lambda" {
   lambda_description = ["helloworld lambda", "lookup only lambda"]
   api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
   s3_resources = ["arn:aws:s3:::evolt-lambdas", "arn:aws:s3:::evolt-failover-tfstate"]
+  dynamodb_table = "HelloWorldTable"
 }
 
 module "helloworld-dynamodb" {

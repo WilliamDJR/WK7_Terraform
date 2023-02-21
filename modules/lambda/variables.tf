@@ -30,3 +30,7 @@ variable "api_gateway_execution_arn" {
 variable "s3_resources" {
   type = list
 }
+
+variable "dynamodb_table" {
+  type = string
+}
