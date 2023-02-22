@@ -3,5 +3,5 @@ output "ubuntu_images" {
 }
 
 output "ubuntu_names" {
-  value = data.aws_ami.ubuntu
+  value = data.aws_ami.ubuntu.name
 }
