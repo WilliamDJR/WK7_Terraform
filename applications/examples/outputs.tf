@@ -9,6 +9,6 @@ output "ubuntu_names" {
   }
 }
 
-output "ubuntu22_names" {
-  value = lookup(data.aws_ami.ubuntu[*],"name","")
+output "public_ips" {
+  value = lookup(aws_instance.example[*].*.public_ips,0)
 }
