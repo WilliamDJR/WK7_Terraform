@@ -10,7 +10,7 @@ output "ubuntu_names" {
 }
 
 locals {
-  ubuntu22 = lookup(output.ubuntu_names.value,"22.04","")
+  ubuntu22 = lookup(data.aws_ami.ubuntu[*].name,"22.04","")
 }
 
 
