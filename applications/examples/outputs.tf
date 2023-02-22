@@ -10,8 +10,5 @@ output "ubuntu_names" {
 }
 
 output "public_ips" {
-  value = {
-    for i in data.aws_instances.running_instances:
-      i.ids => i.public_ips
-  }
+  value = data.aws_instances.running_instances.public_ips;
 }
