@@ -3,7 +3,7 @@ data "aws_ami_ids" "ubuntu_ids" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/ubuntu-*"]
+    values = ["ubuntu/images/ubuntu*22*"]
   }
 }
 
