@@ -2,6 +2,11 @@ ${jsonencode({
     "Version": "2012-10-17",
     "Statement": [
       {
+          "Effect": "Allow",
+          "Action": "dynamodb:*",
+          "Resource": "${dynamodb_table_arn}"
+      },
+      {
         "Action": [
           "S3:*"
         ],
