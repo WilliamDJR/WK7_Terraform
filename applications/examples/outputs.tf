@@ -11,12 +11,10 @@ locals {
     {
       id = element(data.aws_instances.running_instances.ids, i)
       public_ip = element(data.aws_instances.running_instances.public_ips, i)
+      private_ip = element(data.aws_instances.running_instances.private_ips, i)
     }
   ]
 }
 output "running_instances" {
   value = local.instance_data
-}
-output "private_ips" {
-  value = { for instance in data.aws_instances.running_instances : instance.id => instance.private_ip }
 }
