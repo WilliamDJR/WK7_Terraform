@@ -3,5 +3,8 @@ output "ubuntu_images" {
 }
 
 output "ubuntu_names" {
-  value = data.aws_ami.ubuntu[each.key].name
+  value = {
+    for u in data.aws_ami.ubuntu:
+      u.image_id => u.name
+  }
 }
