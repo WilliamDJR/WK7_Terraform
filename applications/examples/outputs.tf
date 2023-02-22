@@ -18,3 +18,8 @@ locals {
 output "running_instances" {
   value = local.instance_data
 }
+
+output "lookup_name_by_ip" {
+  for_each = local.instance_data
+  value = lookup(each.value, "public_ip", "") == "52.221.22.161" ? lookup(each.value, "id",""): []
+}
