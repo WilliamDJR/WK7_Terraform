@@ -34,7 +34,10 @@ data "aws_ami" "ubunt22" {
 # }
 
 data "aws_instance" "running_instances" {
-  instance_state_names = ["running"]
+    filter {
+      name   = "instance-state-name"
+      values = ["running"]
+    }
 }
 
 
