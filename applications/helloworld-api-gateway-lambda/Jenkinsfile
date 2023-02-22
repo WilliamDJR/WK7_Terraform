@@ -11,7 +11,7 @@ pipeline{
         booleanParam(name:'DestroyResources', defaultValue:false, description: 'Select when you want to destroy resources, or else to apply')
     }
 	environment {
-		AWS_Cred = "aws_failover"
+		AWS_Cred = "aws_jr9"
 		Working_Dir = "applications/helloworld-api-gateway-lambda"
 	}
     
