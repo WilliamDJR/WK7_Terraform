@@ -9,6 +9,15 @@ output "ubuntu_names" {
   }
 }
 
-output "public_ips" {
-  value = data.aws_instances.running_instances.public_ips
+locals {
+  instance_data = [
+    for i in range(length(data.aws_instances.running_instances.ids)) :
+    {
+      id = element(data.aws_instances.running_instances.ids, i)
+      public_ip = element(data.aws_instances.running_instances.public_ips, i)
+    }
+  ]
+}
+output "running_instances" {
+  value = local.instance_data
 }
