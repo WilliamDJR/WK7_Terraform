@@ -9,14 +9,6 @@ output "ubuntu_names" {
   }
 }
 
-locals {
-  ubuntu22 = lookup(data.aws_ami.ubuntu[*].name,"22.04","")
-}
-
-
 output "ubuntu22_names" {
-  value = {
-    for u in ubuntu22:
-      u.image_id => u.name
-  }
+  value = lookup(data.aws_ami.ubuntu[*],"name","")
 }
