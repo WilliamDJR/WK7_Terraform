@@ -33,11 +33,8 @@ data "aws_ami" "ubunt22" {
 #   # other resource configuration
 # }
 
-data "aws_instance" "running_instances" {
-    filter {
-      name   = "instance-state-name"
-      values = ["running"]
-    }
+data "aws_instances" "running_instances" {
+    instance_state_names = ["running"]
 }
 
 
