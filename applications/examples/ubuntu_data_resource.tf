@@ -26,12 +26,18 @@ data "aws_ami" "ubunt22" {
     }    
 }
 
-# resource "aws_instance" "example" {
-#   count = 3
-#   ami           = data.aws_ami.ubuntu22.id
-#   instance_type = "t2.micro"
-#   # other resource configuration
-# }
+resource "aws_instance" "example" {
+    for_each = ["ubuntu20","ubuntu18", "ubuntu22"]
+    ami = lookup(var.instance_images, each.value, "buntu22")
+    
+    instance_type = "t2.micro"
+  
+    tags = {
+      Name  = each.value
+      AMI   = ami
+    }
+  # other resource configuration
+}
 
 data "aws_instances" "running_instances" {
     instance_state_names = ["running"]
