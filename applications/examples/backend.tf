@@ -10,15 +10,15 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-southeast-1"
+  region  = "ap-southeast-2"
 }
 
 
 terraform {
     backend "s3" {
         encrypt              = true
-        bucket               = "evolt-failover-tfstate"
-        region               = "ap-southeast-1"
+        bucket               = "tfstate-willido"
+        region               = "ap-southeast-2"
         key                  = "example-tf.tfstate"
         profile              = "default"
     }
