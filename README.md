@@ -1,6 +1,7 @@
 # WK7_Terraform
-WK7 Terraform Tutorial
+
 Change the following to your own:
+
 **Examples**
 
 - applications/examples/backend.tf: bucket/key
