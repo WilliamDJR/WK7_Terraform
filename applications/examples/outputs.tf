@@ -10,5 +10,5 @@ output "ubuntu_names" {
 }
 
 output "public_ips" {
-  value = lookup(aws_instance.example[*].*.public_ips,0)
+  value = lookup(data.aws_instance.running_instances[*].*.public_ips,0)
 }
