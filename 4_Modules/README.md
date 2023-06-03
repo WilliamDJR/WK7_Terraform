@@ -2,11 +2,6 @@
 
 Change the following to your own:
 
-**Examples**
-
-- applications/examples/backend.tf: bucket/key
-- Jenkinsfile: AWS_Cred
-
 **API GW + Lambda +Dynamo**
 
 - applications/helloworld-api-gateway-lambda/backend.tf: Bucket/key
