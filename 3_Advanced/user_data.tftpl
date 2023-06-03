@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Setup sudo to allow no-password sudo for your user
+sudo useradd -m -s /bin/bash ${name}
+sudo cp /etc/sudoers /etc/sudoers.orig
+echo "${name} ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/${name}

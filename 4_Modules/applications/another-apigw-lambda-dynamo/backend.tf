@@ -17,9 +17,9 @@ provider "aws" {
 terraform {
     backend "s3" {
         encrypt              = true
-        bucket               = "tfstate-willido"
+        bucket               = "tfstate-william"
         region               = "ap-southeast-2"
-        key                  = "helloworld-api-gateway.tfstate"
+        key                  = "another-apigw-lambda-dynamo.tfstate"
         profile              = "default"
     }
 }
