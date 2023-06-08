@@ -3,6 +3,6 @@ data "aws_ami" "ubuntu22" {
   owners      = ["099720109477"] # Canonical
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu*22.04*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu*22.04*amd64*"]
   }
 }

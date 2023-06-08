@@ -18,7 +18,7 @@ terraform {
     encrypt = true
     bucket  = "tfstate-william"
     region  = "ap-southeast-2"
-    key     = "L03_TF_3_Advanced.tfstate"
+    key     = "WK7_TF_3_Advanced.tfstate"
     profile = "default"
   }
 }
